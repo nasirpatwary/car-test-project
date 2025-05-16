@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Link, useNavigate } from "react-router";
 import { useState } from "react";
@@ -82,7 +81,7 @@ const SignUp = () => {
                     minLength: 15,
                     maxLength: 25,
                   })}
-                  placeholder="Please create a image."
+                  placeholder="Please create a image name."
                   className="input input-bordered w-full"
                 />
                 {errors.profile?.type === "minLength" && (

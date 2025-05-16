@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import useAuth from "../../../hooks/useAuth";
-import { DashboardLeftSite, DashboardRightSite } from "../DashboarCustom/DashboarCustom";
-import { Outlet } from "react-router";
-const DashboardLayout = () => {
+import useAuth from "../../hooks/useAuth";
+import Profile from "./Profile";
+const ProfileLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user } = useAuth();
   return (
@@ -26,19 +25,20 @@ const DashboardLayout = () => {
             <X />
           </button>
         </div>
-        <div className="text-center space-y-4">
-          <h2 className="text-xl font-semibold hidden lg:block">
-            {user?.displayName}
-          </h2>
+        <div className="text-center space-y-3">
           <img
             referrerPolicy="no-referrer"
-            className="w-8 h-8 rounded-full mx-auto shadow-lg shadow-cyan-500/50 bg-cyan-500 scale-125 ring-2 ring-cyan-500"
+            className="w-10 h-10 rounded-full mx-auto shadow-lg shadow-cyan-500/50 bg-cyan-500 scale-125 ring-2 ring-cyan-500"
             src={user?.photoURL}
-            alt={user.displayName}
+            alt={user?.displayName}
           />
+         <div>
+         <h2 className="text-xl font-semibold">
+            {user?.displayName}
+          </h2>
+          <p>{user?.email}</p>
+         </div>
         </div>
-        <div className="divider">Our Products</div>
-        <DashboardLeftSite />
       </aside>
       {/* Main content area */}
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -53,14 +53,12 @@ const DashboardLayout = () => {
         <div className="flex flex-1 overflow-hidden">
           {/* Content area */}
           <main className="flex-1 overflow-y-auto p-4 bg-gray-100">
-            <Outlet />
+            <Profile />
           </main>
-          {/* Right menu (Collections) - visible only on xl+ */}
-           <DashboardRightSite />
         </div>
       </div>
     </div>
   );
 };
 
-export default DashboardLayout;
+export default ProfileLayout;

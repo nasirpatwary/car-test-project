@@ -8,7 +8,7 @@ const LoadingSpinner = () => {
         width="70"
         color="grey"
         strokeWidth="5"
-        strokeColor="white"
+        strokeColor="black"
         animationDuration="0.75"
         ariaLabel="rotating-lines-loading"
         wrapperStyle={{}}

@@ -1,6 +1,5 @@
 import logo from "../assets/logo2.png";
 import footer from "../assets/footer.jpg";
-import service from "../assets/service.jpg";
 import useAuth from "../hooks/useAuth";
 import { useOurMember } from "../hooks/useCollection";
 const Footer = () => {
@@ -46,7 +45,7 @@ const Footer = () => {
               <a className="link link-hover">Marketing</a>
               <a className="link link-hover">Advertisement</a>
             </nav>
-            <nav className="md:mt-8 flex-col flex">
+            <nav className="md:mt-10 flex-col flex">
               <a className="link link-hover">Testimonials</a>
               <a className="link link-hover">Privacy Policy</a>
               <a className="link link-hover">latest News</a>

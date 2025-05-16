@@ -35,9 +35,9 @@ const OurMembers = () => {
         }}
         loop // ✅ Loop back to the start
       >
-        {members.map((member, i) => (
-          <SwiperSlide key={i}>
-            <OurCart member={member} i={i} />
+        {members.map((member) => (
+          <SwiperSlide key={member._id}>
+            <OurCart member={member} />
           </SwiperSlide>
         ))}
       </Swiper>

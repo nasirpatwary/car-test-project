@@ -4,6 +4,7 @@ import "animate.css";
 import "./index.css";
 import "swiper/css";
 import '@smastrom/react-rating/style.css';
+import "react-datepicker/dist/react-datepicker.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Router from "./routes/routes";
