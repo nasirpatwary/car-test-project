@@ -56,13 +56,13 @@ const SignUp = () => {
   const password = watch("password");
   return (
     <div className="hero">
-      <div className="hero-content flex-col lg:flex-row">
+      <div className="hero-content flex-col md:flex-row">
         <div>
           <Lottie animationData={logo} loop={true} autoplay={true} />
         </div>
-        <div className="car w-full max-w-sm">
+        <div className="car w-full">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="card-body">
+            <div className="md:card-body">
               <fieldset className="fieldset">
                 <label className="fieldset-label">Name</label>
                 <input
@@ -216,7 +216,7 @@ const SignUp = () => {
                 </button>
               </fieldset>
               <SocialLogin />
-              <p className="text-black">
+              <p className="text-black text-center">
                 Already haven an account? Please{" "}
                 <Link to={"/login"} className="text-blue-300">
                   Login

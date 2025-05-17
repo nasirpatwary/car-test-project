@@ -51,13 +51,13 @@ const Login = () => {
   };
   return (
     <div className="hero">
-      <div className="hero-content flex-col lg:flex-row">
+      <div className="hero-content flex-col md:flex-row">
         <div>
           <Lottie animationData={logo} loop={true} autoplay={true} />
         </div>
-        <div className="car w-full max-w-sm">
+        <div className="car w-full">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="card-body">
+            <div className="md:card-body">
               <fieldset className="fieldset">
                 <label className="fieldset-label">Email</label>
                 <input
@@ -110,7 +110,7 @@ const Login = () => {
                 </button>
               </fieldset>
               <SocialLogin />
-              <p className="text-black">
+              <p className="text-black text-center">
                 Don’t have an account? Create an{" "}
                 <Link to={"/signup"} className="text-blue-300">
                   account
