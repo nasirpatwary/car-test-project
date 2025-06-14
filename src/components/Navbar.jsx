@@ -48,7 +48,7 @@ const Navbar = () => {
         </NavLink>
       )}
       <Link to={"/dashboard/table-cars"}>
-         <div className={`badge badge-secondary`}>+ {cars.length}</div>
+         <div className={`badge badge-secondary px-2 text-black`}>+ {cars.length}</div>
       </Link>
     </>
   );

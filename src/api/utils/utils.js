@@ -2,7 +2,7 @@ import axios from "axios";
 // IMAGE BB URL AND KEY
 const urlAndKey = `${import.meta.env.VITE_IMG_BB_URL}?key=${
   import.meta.env.VITE_IMG_BB_KEY
-}`;
+}` 
 // SAVE IMAGE BB URL
 export const upLoadImage = async (buffer, prompt) => {
   const form = new FormData();

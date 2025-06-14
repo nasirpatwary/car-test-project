@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CreateResponsive from "../shard/CreateResponsive";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import useAuth from "../hooks/useAuth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import Swal from "sweetalert2";

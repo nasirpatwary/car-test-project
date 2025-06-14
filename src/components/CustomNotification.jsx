@@ -26,7 +26,7 @@ const globalToast = (notify) => {
 const warningToast = (notify) => {
   return toast.warning(`${notify}`, {
     position: "top-center",
-    autoClose: 5000,
+    autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: false,
     pauseOnHover: true,

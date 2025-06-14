@@ -21,7 +21,7 @@ const Testimonial = () => {
        {/* Custom Previous Button with Icon */}
         <button
           ref={prevRef}
-          className={`bg-black animate-pulse p-2 cursor-pointer absolute left-0 top-2/3 transform -translate-y-1/2 z-10 rounded-full`}
+          className={`bg-black text-white transition-all duration-300 animate-pulse p-2 cursor-pointer absolute left-0 top-2/3 transform -translate-y-1/2 z-10 rounded-full`}
         >
           <FaArrowAltCircleRight />
         </button>
@@ -29,7 +29,7 @@ const Testimonial = () => {
         {/* Custom Next Button with Icon */}
         <button
           ref={nextRef}
-          className="bg-green-600 animate-pulse p-2 cursor-pointer absolute right-0 top-2/3 transform -translate-y-1/2 z-10 rounded-full"
+          className="bg-green-600 transition-all duration-300 animate-pulse p-2 cursor-pointer absolute right-0 top-2/3 transform -translate-y-1/2 z-10 rounded-full"
         >
           <FaArrowAltCircleLeft />
         </button>
@@ -74,7 +74,7 @@ const Testimonial = () => {
       >
         {testimonials.map((product, i) => (
           <SwiperSlide key={i}>
-            <div className="border border-[#3d4a51] cursor-pointer mt-4">
+            <div className="cursor-pointer mt-4">
               <figure className="p-4">
                 <img
                   src={product.image}

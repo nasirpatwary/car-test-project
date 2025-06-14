@@ -62,14 +62,15 @@ const SignUp = () => {
         </div>
         <div className="car w-full">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="md:card-body">
+            <div className="md:card-body border rounded">
               <fieldset className="fieldset">
                 <label className="fieldset-label">Name</label>
                 <input
                   type="text"
+                  id="text"
                   {...register("name", { required: true })}
                   placeholder="Enter Your Name"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full border rounded"
                 />
                 {errors.name && (
                   <span className="text-red-500">Please name is required</span>
@@ -77,12 +78,13 @@ const SignUp = () => {
                 <label className="fieldset-label">Generate Image</label>
                 <input
                   type="text"
+                  id="profile"
                   {...register("profile", {
                     minLength: 15,
                     maxLength: 25,
                   })}
                   placeholder="Please create a image name."
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full border rounded"
                 />
                 {errors.profile?.type === "minLength" && (
                    <span className="text-red-500">
@@ -97,11 +99,12 @@ const SignUp = () => {
                 <label className="fieldset-label">Email</label>
                 <input
                   type="email"
+                  id="email"
                   {...register("email", {
                     pattern: /[a-z0-9]+@[a-z]+\.[a-z]{2,}[com]/,
                   })}
                   placeholder="Enter Your Email"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full border rounded"
                 />
                 {errors.email?.type === "pattern" && (
                   <span className="text-red-500">
@@ -112,6 +115,7 @@ const SignUp = () => {
                 <label className="fieldset-label">Password</label>
                 <div className="relative">
                   <input
+                  id="password"
                     type={eyes ? "text" : "password"}
                     {...register("password", {
                       required: true,
@@ -121,7 +125,7 @@ const SignUp = () => {
                         /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}/,
                     })}
                     placeholder="Enter Your Password"
-                    className="input input-bordered w-full"
+                    className="input input-bordered w-full border rounded"
                   />
                   {eyes ? (
                     <FaEye
@@ -159,6 +163,7 @@ const SignUp = () => {
                 <label className="fieldset-label">Confirm Password</label>
                 <div className="relative">
                   <input
+                    id="confirmPassword"
                     type={eyes2 ? "text" : "password"}
                     {...register("confirmPassword", {
                       required: "Please confirm your password",
@@ -167,7 +172,7 @@ const SignUp = () => {
                         "Passwords do not match Please Check Password",
                     })}
                     placeholder="Confirm Password"
-                    className="input input-bordered w-full"
+                    className="input input-bordered w-full border rounded"
                   />
                   {eyes2 ? (
                     <FaEye
@@ -191,6 +196,7 @@ const SignUp = () => {
                 <label className="fieldset-label">
                   <input
                     type="checkbox"
+                    id="checkbox"
                     {...register("terms", { required: true })}
                     className="checkbox"
                   />
@@ -201,7 +207,7 @@ const SignUp = () => {
                     Accept Our Terms And Conditions
                   </p>
                 )}
-                <button className="btn btn-neutral mt-4">
+                <button className="btn rounded btn-neutral mt-4">
                   {isSubmitting ? (
                     <span className="flex items-center">
                       Loading..

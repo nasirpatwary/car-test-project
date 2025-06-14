@@ -12,7 +12,6 @@ import SocialLogin from "../../components/SocialLogin";
 import { TbFidgetSpinner } from "react-icons/tb";
 const Login = () => {
   const navigate = useNavigate();
-  
   const location = useLocation();
   const { signInUser, resetPassword } = useAuth();
   const [eyes, setEyes] = useState(false);
@@ -25,6 +24,9 @@ const Login = () => {
     formState: { errors, isSubmitting },
   } = useForm();
   const onSubmit = async (data) => {
+    if (!captcha) {
+      return toast.error("Please complete the reCAPTCHA ✅");
+    }
     try {
       const { user } = await signInUser(data.email, data.password);
       if (user) {
@@ -32,12 +34,13 @@ const Login = () => {
         navigate(location?.state ? location?.state : "/");
         toast.success(`Wellcome ${user?.displayName} Login successfully ✅`);
       }
-    } catch (err) {
-      if (err)
-        return toast.error(
-          "email and password should match with the registered email and password"
-        );
     }
+      catch (err) {
+        if (err)
+          return toast.error(
+            "email and password should match with the registered email and password"
+          );
+      }
   };
   const handleResetPassword = async () => {
     const emailRef = getValues("email");
@@ -46,7 +49,7 @@ const Login = () => {
     }
     await resetPassword(emailRef);
     return toast.success(
-      "Do you reset Want to go to your email password? Please check your email. "
+      "Do you reset Want to go to your email password? Please check your email."
     );
   };
   return (
@@ -57,14 +60,15 @@ const Login = () => {
         </div>
         <div className="car w-full">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="md:card-body">
+            <div className="md:card-body border rounded">
               <fieldset className="fieldset">
                 <label className="fieldset-label">Email</label>
                 <input
                   type="email"
                   {...register("email")}
                   placeholder="Enter Your Email"
-                  className="input input-bordered w-full"
+                  id="email"
+                  className="input input-bordered w-full border rounded"
                 />
                 <label className="fieldset-label">Password</label>
                 <div className="relative">
@@ -72,7 +76,8 @@ const Login = () => {
                     type={eyes ? "text" : "password"}
                     {...register("password")}
                     placeholder="Enter Your Password"
-                    className="input input-bordered w-full"
+                    id="password"
+                    className="input input-bordered w-full border rounded"
                   />
                   {eyes ? (
                     <FaEye
@@ -92,10 +97,13 @@ const Login = () => {
                   sitekey={import.meta.env.VITE_RECATCHA_KEY}
                   onChange={(value) => setCaptcha(value)}
                 />
-                <Link onClick={handleResetPassword} className="link link-hover text-black">
+                <Link
+                  onClick={handleResetPassword}
+                  className="link link-hover text-black"
+                >
                   Forgot password?
                 </Link>
-                <button disabled={!captcha} className="btn btn-neutral mt-4">
+                <button className="btn rounded btn-neutral mt-4">
                   {isSubmitting ? (
                     <span className="flex items-center">
                       Loading..
